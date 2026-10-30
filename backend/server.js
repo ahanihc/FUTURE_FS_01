@@ -9,8 +9,13 @@ dotenv.config();
 const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://ahani-portfolio.vercel.app',
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: allowedOrigins,
 }));
 
 app.use(express.json());
